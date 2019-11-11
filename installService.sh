@@ -1,47 +1,46 @@
-#!bin/sh
+!/bin/bash
 # run with sudo priviledge
 
-
-echo '\n\nUpdating and upgrading the server\n\n'
+print '\n\n'
+echo 'Updating and upgrading the server'
 apt update -y
 apt-get upgrade -y
 
-
-echo '\n\nInstalling Java Package\n\n'
+print '\n\n'
+echo 'Installing Java Package'
 apt install default-jdk -y
 java -version
 
-
-echo '\n\nInstalling java component\n\n'
+print '\n\n'
+echo 'Installing java component'
 apt install software-properties-common -y
 add-apt-repository ppa:linuxuprising/java
 
-
-echo '\n\nInstalling Elastic Search\n\n'
+print '\n\n'
+echo 'Installing Elastic Search'
 apt-get install elasticsearch -y
 /bin/systemctl daemon-reload
 /bin/systemctl enable elasticsearch.service
 systemctl start elasticsearch.service
 
-
-echo 'Installing Kibana\n\n'
+print '\n\n'
+echo 'Installing Kibana'
 apt-get install kibana -y
 /bin/systemctl daemon-reload
 /bin/systemctl enable kibana.service
 systemctl start kibana.service
 
-
-echo '\n\ninstalling apache2 web server and PHP\n\n'
+print '\n\n'
+echo 'installing apache2 web server and PHP'
 apt install apache2 -y
 apt install libapache2-mod-php -y
 apt install php -y
 
-
 systemctl stop apache2
 systemctl start apache2
 
-
-echo '\n\ninstalling composer and elastic component\n\n'
+print '\n\n'
+echo 'installing composer and elastic component'
 apt install composer -y
 mkdir /var/www/html/api
 cd /var/www/html/api/
