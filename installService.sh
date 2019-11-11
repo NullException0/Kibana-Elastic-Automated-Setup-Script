@@ -1,4 +1,6 @@
 #!bin/sh
+# run with sudo priviledge
+
 
 echo '\n\nUpdating and upgrading the server\n\n'
 apt update -y
