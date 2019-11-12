@@ -50,10 +50,10 @@ systemctl start kibana.service
 printf '\n\n'
 echo 'installing apache2 web server and PHP'
 apt-get install apache2 -y
-apt-get install libapache2-mod-php -y
 
 #PHP
 apt-get install php -y
+apt-get install libapache2-mod-php -y
 
 systemctl stop apache2
 systemctl start apache2
